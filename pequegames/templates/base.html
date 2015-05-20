@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<!--Pagina responsiva-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>PequeGames!</title>
+		<!--Icono de pagina (pulpo)-->
+		<link rel="shortcut icon" type="image/ico" href="{{STATIC_URL}}imgs/Pequelogo1.ico">
+		<!-- R E F E R E N C I A   HOJA DE ESTILO B O O T S T R A P-->
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/carousel.css">
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/animaciones.css">
+		<STYLE type="text/css">
+       		HEADER { background-image: url("{{STATIC_URL}}imgs/head.png") }
+       		FOOTER { background-image: url("{{STATIC_URL}}imgs/footer1.png") }
+
+       		.navbar-default2 {
+	    		background-color: rgba(0.0.0.0);
+				color: rgba(215, 44, 255, 0.2);
+			    border-radius:0;
+			}
+
+			.nav-pills>li>a:hover {
+			  	background: url("{{STATIC_URL}}imgs/estrella.png") no-repeat;
+			  	background-color: rgba(255, 255, 255, 0.3);
+			  	color: #425347;
+			  	font-size: 17px;
+			}
+
+			.btn-group>a:hover{
+
+				width: 90px;
+				background: url("{{STATIC_URL}}imgs/estrella.png") no-repeat;
+			  	background-color: rgba(255, 255, 255, 0.3);
+			  	color: #425347;
+			  	font-size: 17px;
+			}
+
+		</STYLE>
+    {%block estilos%}{%endblock%}
+</head>
+
+<header HEADER>
+<!-- L O G O  &  S L O G A N -->
+		<div class="row">
+			<div class="col-md-6">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="{{STATIC_URL}}imgs/PGames.png" width="270" height="189">
+			</div>		
+
+			<div class="col-md-6" align="right">
+				<font color="#911583">
+				<br><br><br><br><br><br>
+					{%block header%}
+						<em>
+							<h3>
+								"Aprende, mejora, divi&eacutertete"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</h3>
+						</em>
+					{%endblock%}
+				</font>
+			</div>		
+		</div>
+<!-- L O G O  &  S L O G A N -->
+
+<div id="container"></div> 
+
+<!-- N A V B A R -->
+<!--<div class="row">		Esta linea se comento con fin de ahorrar espacio... franja azul--> 
+	<nav class = "navbar navbar-default2">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target = ".navbar-ex1-collapse">
+				<!--Esto es para crear el boton con las tres rallitas xD-->
+					<span class="sr-only">Cambiar Navegacion</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav nav-pills nav-justified">
+					<li><a href="/"><strong>Home</strong></a></li>
+				  <li><a href="/juegos/home"><strong>Juegos</strong></a></li>
+					<li><a href="/peques/consulta"><strong>Peques Registrados</strong></a></li>
+					{% if user.is_authenticated %}	
+          <li><a href="/peque/registro/"><strong>Registrar Peque</strong></a></li>
+						<li><a href="{%url 'logout'%}"><strong><en>{{user.username}}:</en></strong> LogOut</a></li>	
+					{% else %}
+            <li><a href="/tutores/registro/"><strong>Registrarse</strong></a></li>
+						<li><a href="{%url 'login'%}"><strong>LogIn</strong></a></li>
+					{% endif %}
+				</ul>
+			</div>
+	</nav>
+  <br>
+<!--</div> -->
+<!-- N A V B A R -->
+</header>
+
+<body id="container" onLoad="{%block load%}{%endblock%}">
+	{%block body%}
+
+	{%endblock%}
+
+<!-- F O O T E R -->
+	<footer FOOTER>
+		<font color="#585858">
+
+			<div class="container" >
+				<div class="row">
+					<br>
+
+					<div class="col-md-4">
+						<p>
+						Created by: Fabi&aacuten L&oacutepez / Karla Guzm&aacuten 
+						</p>	
+					</div>
+
+					<div class="col-md-6" align="right">
+					</div>
+
+					<div class="col-md-2" align="right">
+						<a href="mailto:kaguzmanf@gmail.com">kaguzmanf@gmail.com</a>
+						<br>
+						<a href="mailto:isc.fabian.lopez@gmail.com">isc.fabian.lopez@gmail.com</a>
+					</div>
+				</div>
+			</div>	
+
+		</font>	
+		<br><br><br><br><br><br>
+	</footer> 
+<!-- F O O T E R -->
+
+</body>
+	<!--REFERENCIAS JS-->
+	<div id="manzana"></div>
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/docs.min.js"></script>
+	{%block javablock%}{%endblock%}
+</html>

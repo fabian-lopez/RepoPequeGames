@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{% block body %}
+<center>
+  <img src="{{STATIC_URL}}imgs/registro.png">
+</center>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2 cajats">
+			<div class="row">
+				<form method="POST" enctype="multipart/form-data">
+					{%csrf_token%}
+					{{form.as_p}}
+					<br>
+          <center>
+					  <input class="btn btn-success btn-lg" type="submit" value="Aceptar">
+					  <input class="btn btn-info btn-lg" type="reset" value="Limpiar">
+          </center>
+
+				</form>
+			</div> {# Row Titulo #}
+			<div class="bubbles">
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b2" />
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b5" />
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble" />
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b6" />
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b3" />
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b7" />
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b4" />
+				<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b8" />
+			</div>
+		</div>
+		<div class="col-md-4 col-md-offset-1" align="right">
+			<br><br><br>
+			<font color="black"><br><br>
+				<img src="{{STATIC_URL}}imgs/RegistroPeque.png">
+			</font>
+		</div>
+	</div>
+</div>
+<center>
+	<h2>{{info}}</h2>
+</center>
+{% endblock %}

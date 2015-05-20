@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{%block load%}init();{%endblock%}
+{%block body%}
+	<div class="container">
+		<div class="row">
+			<center><h2>Pulsa sobre dos cartas para ver si coinciden... Mucha suerte ! :D</h2></center>
+		</div>
+		<div class="row">
+			<div class="col-md-11 col-sm-11 col-xs-12 col-md-offset-1 col-sm-offset-1">
+				<canvas id="canvas" width = "900" height="400">
+					<center>
+						<h1>Tu navegador no soporta el elemento "Canvas" de HTML5 :'(</h1>
+					</center>
+				</canvas>
+				<br>
+			</div>
+		</div>
+	</div>
+	<form name="record">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-1" align="left">
+					Numero de coincidencias encontradas: <input type="text" name="contador" value="0" size="1"/>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12" align="center">
+					Tiempo tomado para completar el juego: <input type="text" name="tiempo" value=" " size="4"/> segundos.
+				</div>
+			</div>
+		</div>
+	</form>
+
+<br>
+
+<!--ANIMACION BURBUJAS-->
+<div id="container">
+
+	<div class="bubbles">
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b2" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b5" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b6" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b3" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b7" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b4" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b8" />
+	</div>
+</div>
+
+	
+{%endblock%}
+{%block javablock%}
+	<script type="text/javascript" src="{{STATIC_URL}}js/memoria.js"></script>
+{%endblock%}

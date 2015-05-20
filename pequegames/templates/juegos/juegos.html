@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+{%block body%}<br>
+<center>
+  <img src= "{{STATIC_URL}}imgs/juegos.png"/>
+</center>
+		<div class="col-md-12" >
+			<div class="cajamodulos">
+				<input  type="radio" name="control" id="boton1"  onclick="delaylink(1)"/>
+				<label for="boton1" class="boton boton1" name="memoria">Snake</label>
+				<input  type="radio" name="control" id="boton2" onclick="delaylink(2)"/>
+				<label for="boton2" class="boton boton2" name="memoria2">Memoria</label>
+
+				<div id="pulpi"></div>
+			</div>
+		</div>
+<br><br><br>
+<center>Fondo por: &copy; Karla Azucena Guzman Favela.</h6></center>
+
+<!--ANIMACION BURBUJAS-->
+<div id="container">
+
+	<div class="bubbles">
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b2" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b5" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b6" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b3" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b7" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b4" />
+		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b8" />
+	</div>
+</div>
+
+<br>
+{%endblock%}
+{%block javablock%}
+  <script type="text/javascript">
+	function delaylink(boton){
+    if(boton == 1){
+      setTimeout(function(){window.location.href = '/juegos/agilidad/snake';}, 1000 * 4)
+    }
+    if(boton == 2){
+      setTimeout(function(){window.location.href = '/juegos/agilidad/memoria/';}, 1000 * 4)
+    }
+  }
+	</script>
+{%endblock%}
