@@ -1,0 +1,7 @@
+arbol.png,arbol.png,
+azucena.png,azucena.png,
+cactus.png,cactus.png,
+girasol.png,girasol.png,
+palmera.png,palmera.png,
+pino.png,pino.png,
+rosa.png,rosa.png

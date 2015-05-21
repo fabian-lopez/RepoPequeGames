@@ -1,4 +1,4 @@
-from .views import registropeque, consulta_peques
+from .views import registropeque, consulta_peques, WEBxml_view, WEBjson_view
 from django.conf.urls import patterns, url
 
 urlpatterns = patterns('pequegames.apps.peques.views',

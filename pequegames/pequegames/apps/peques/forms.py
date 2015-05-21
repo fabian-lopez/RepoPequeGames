@@ -7,8 +7,7 @@ school = (
   ('primaria','Primaria'),
 )
 
-class Peques_form(forms.Form):
-  nombre	  		=	forms.CharField(widget = forms.TextInput())
+class Peques_form(UserCreationForm):
   edad 		    	=	forms.IntegerField(widget = forms.NumberInput())
   escolaridad 	=	forms.ChoiceField(choices= school)
   def clean(self):

@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block estilos%}
+<style type="text/css">
+  #miCanvas{
+    border:dotted 2px gray;
+    background-color: rgba(173, 69, 182, 0.2);
+  }
+</style>
+{%endblock%}
+{%block load%}{%endblock%}
+{%block body%}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-11 col-sm-11 col-xs-12 col-md-offset-1 col-sm-offset-1">
+			<br>
+        <canvas id="miCanvas" width="960px" height="450px">
+          Tu navegador no soporta CANVAS
+        </canvas>
+				<br>
+			</div>
+		</div>
+	</div>
+<br>
+{%endblock%}
+{%block javablock%}
+	<script type="text/javascript" src="{{STATIC_URL}}js/ahorcado.js"></script>
+{%endblock%}

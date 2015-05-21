@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{%block estilos%}
+<style type="text/css">
+  #miCanvas{
+    border:dotted 2px gray;
+    background-color: rgba(173, 69, 182, 0.2);
+  }
+</style>
+{%endblock%}
+{%block load%}{%endblock%}
+{%block body%}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-11 col-sm-11 col-xs-12 col-md-offset-1 col-sm-offset-1">
+			<br>
+        <canvas id="miCanvas" width="960px" height="500px">
+          Tu navegador no soporta CANVAS
+        </canvas>
+        	<form name="record" method="POST">
+            {%csrf_token%}
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12 " align="left">
+                  Aciertos: <input type="text" name="contador" value="0" size="6" />
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12" align="center">
+                  Tiempo de juego: <input type="text" name="tiempo" value=" " size="6"/> segundos.
+                </div>
+              </div>
+            </div>
+          </form>
+        <audio id="nota1">
+          <source src="sonidos/note1.mp3"/>
+            <source src="sonidos/note1.ogg"/>
+        </audio>
+        <audio id="nota2">
+          <source src="sonidos/note2.mp3"/>
+            <source src="sonidos/note2.ogg"/>
+        </audio>
+        <audio id="nota3">
+          <source src="sonidos/note3.mp3"/>
+            <source src="sonidos/note3.ogg"/>
+        </audio>
+        <audio id="nota4">
+          <source src="sonidos/note4.mp3"/>
+            <source src="sonidos/note4.ogg"/>
+        </audio>
+        <audio id="nota5">
+          <source src="sonidos/note5.mp3"/>
+            <source src="sonidos/note5.ogg"/>
+        </audio>
+        <audio id="fin">
+          <source src="sonidos/error.mp3"/>
+            <source src="sonidos/error.ogg"/>
+        </audio>
+				<br>
+			</div>
+		</div>
+	</div>
+<br>
+{%endblock%}
+{%block javablock%}
+	<script type="text/javascript" src="{{STATIC_URL}}js/simondice.js"></script>
+{%endblock%}

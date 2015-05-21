@@ -21,6 +21,11 @@ LOGIN_URL               =   reverse_lazy('login')
 LOGIN_REDIRECT_URL      =   reverse_lazy('index')
 LOGOUT_URL              =   reverse_lazy('logout')
 
+# E M A I L S #
+EMAIL_BACKEND = 'djrill.mail.backends.djrill.DjrillBackend'
+MANDRILL_API_KEY='bEImvSJ_JOdZgz1J9FaI5Q'
+#DEFAULT_FROM_EMAIL = 'kaguzmanf@gmail.com'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -51,6 +56,7 @@ INSTALLED_APPS = (
     'pequegames.apps.records',
     'pequegames.apps.juegos',
     'pequegames.apps.logros',
+    'djrill',
 )
 
 MIDDLEWARE_CLASSES = (

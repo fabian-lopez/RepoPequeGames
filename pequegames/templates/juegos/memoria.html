@@ -1,4 +1,5 @@
 {%extends 'base.html'%}
+{%block estilos%}{%endblock%}
 {%block load%}init();{%endblock%}
 {%block body%}
 	<div class="container">
@@ -16,37 +17,24 @@
 			</div>
 		</div>
 	</div>
-	<form name="record">
+	<form name="record" method="POST">
+    {%csrf_token%}
 		<div class="container">
 			<div class="row">
-				<div class="col-md-5 col-sm-6 col-xs-12 col-md-offset-1" align="left">
-					Numero de coincidencias encontradas: <input type="text" name="contador" value="0" size="1"/>
+				<div class="col-md-3 col-sm-4 col-xs-12 col-md-offset-1" align="left">
+          Aciertos: <input type="text" name="contador" value="0" size="6" />
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-12" align="center">
-					Tiempo tomado para completar el juego: <input type="text" name="tiempo" value=" " size="4"/> segundos.
+        <div class="col-md-3 col-sm-4 col-xs-12 col-md-offset-1" align="left">
+          Intentos: <input type="text" name="intentos" value="0" size="6" />
+				</div>
+				<div class="col-md-3 col-sm-4 col-xs-12" align="center">
+					Tiempo de juego: <input type="text" name="tiempo" value=" " size="6"/> segundos.
 				</div>
 			</div>
 		</div>
 	</form>
 
 <br>
-
-<!--ANIMACION BURBUJAS-->
-<div id="container">
-
-	<div class="bubbles">
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b2" />
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b5" />
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble" />
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b6" />
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b3" />
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b7" />
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b4" />
-		<img src="{{STATIC_URL}}imgs/drop.png" class="bubble b8" />
-	</div>
-</div>
-
-	
 {%endblock%}
 {%block javablock%}
 	<script type="text/javascript" src="{{STATIC_URL}}js/memoria.js"></script>

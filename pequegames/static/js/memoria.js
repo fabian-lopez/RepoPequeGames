@@ -12,8 +12,8 @@
 	var primeracarta;
 	var segundacarta;
 	var colordorso = "rgb(128,0,128)";
-	var frontbgcolor = "rgb(251,215,73)"; 
-	var colorpoli = "rgb(254,11,0)";
+	var frontbgcolor = "rgb(245,137,177)"; 
+	var colorpoli = "rgb(92,151,184)";
 	var colormesa = "rgb(255,255,255)";
 	var cardrad = 30;
 	var baraja = [];
@@ -24,6 +24,7 @@
 	var cartaalto = 4*cardrad;
 	var coinciden;
 	var tiempoinicio;
+  var intentos = 0;
 
 /*Fin variables memoria*/
 	
@@ -148,9 +149,13 @@ function elige(ev) {
 			eleccion2.dibujar();
 		  	if (baraja[i].info==baraja[primeracarta].info) {
 				coinciden = true;
+        intentos = intentos +1
 				
 				var nm = 1+Number(document.record.contador.value);
 				document.record.contador.value = String(nm);
+        /*intentos*/
+				document.record.intentos.value = String(intentos);
+          
 				if (nm>= .5*baraja.length) {
 					var now = new Date();
 					var nt = Number(now.getTime());
@@ -159,6 +164,17 @@ function elige(ev) {
 					document.record.tiempo.value = String(segundos);
 					//necesario para darvuelta en la última coincidencia
 					
+          /*Datos finales*/
+            /*Espera 6 segundos despues de ganar para guardar los datos en la base de datos! 
+              y luego en medio segundo despues limpiar el metodo de guardar para 
+              prevenir que no guarde mas de 1 sola vez*/
+          myVar = setInterval(function () {
+          alert('Felicidades !! Has completado el juego :D\nEl numero de intentos fue de: '+intentos+'\nEl tiempo que te tomo completar el juego fue: ' + segundos+'seg.\n\nAl dar click en OK tu record se guardara automaticamente :\)');
+            document.record.submit();}, 6000);
+          
+          setInterval(function () {clearTimeout(myVar)}, 6500);
+            
+          
 					window.addEventListener("resize", resizeCanvas, false);
 			        window.addEventListener("DOMContentLoaded", fuegoo(), false);
 			        
@@ -176,6 +192,8 @@ function elige(ev) {
 			}
 			else {
 				coinciden = false;
+        intentos = intentos +1;
+        document.record.intentos.value = String(intentos);
 			}
 			primeraeleccion = true;
 			tid = setTimeout(darvuelta,1000);
@@ -200,6 +218,7 @@ function darvuelta() {
 }
 
 function init(){
+  
    ctx = document.getElementById('canvas').getContext('2d'); 
    canvas1 = document.getElementById('canvas');
    canvas1.addEventListener('click',elige,false);

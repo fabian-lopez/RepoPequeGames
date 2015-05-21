@@ -4,25 +4,36 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-		<font color="orange">
-	<strong><h2>Peques registrados</h2></strong>
-</font>	
-			<table table style="background-color: FFFFFF" class="table table-striped table-bordered">
-			<thead align="center">
-				<th>FECHA</th>
-				<th>NOMBRE</th>
-				<th>EDAD</th>
-				<th>ESCOLARIDAD</th>
-			</thead>
-			{%for P in peques%}
-				<tr>
-					<td>{{P.fecha}}</td>
-					<td>{{P.nombre}}</td>
-					<td>{{P.edad}}</td>
-					<td>{{P.escolaridad}}</td>
-				</tr>
-			{%endfor%}
-		</table>
+		
+      {%if info == ''%}
+      <font color="orange">
+	    <strong><h2>Peques registrados</h2></strong>
+      </font>	
+        <table table style="background-color: FFFFFF" class="table table-striped table-bordered">
+        <thead align="center">
+          <th>FECHA</th>
+          <th>NOMBRE</th>
+          <th>EDAD</th>
+          <th>ESCOLARIDAD</th>
+        </thead>
+        {%for P in peques%}
+          <tr>
+            <td>{{P.fecha}}</td>
+            <td>{{P.nombre}}</td>
+            <td>{{P.edad}}</td>
+            <td>{{P.escolaridad}}</td>
+          </tr>
+        {%endfor%}
+      </table>
+      {%else%}
+      <center>
+      <font color="orange">
+	    <strong><h1>A&uacuten no cuenta con Peques registrados!</h1></strong>
+      </font>	
+      <img src="{{STATIC_URL}}imgs/caritatriste.png" width="200">
+        </center>
+      {%endif%}
+      
 		</div>			
 	</div>	
 </div>

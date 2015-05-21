@@ -6,8 +6,9 @@ class Tutores(models.Model):
   nombre=models.OneToOneField(User)
   edad=models.IntegerField()
   email=models.EmailField()
-  telefono=models.BigIntegerField()
-  foto=models.ImageField(upload_to = 'usuarios')
+  telefono=models.BigIntegerField(blank=True, null=True)
+  fecha=models.DateTimeField(auto_now_add= True, blank = False)
+  foto=models.ImageField(upload_to = 'usuarios', blank=True, null=True)
   def __unicode__(self):
 		return self.nombre.username
 

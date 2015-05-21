@@ -4,17 +4,37 @@
   <img src= "{{STATIC_URL}}imgs/juegos.png"/>
 </center>
 		<div class="col-md-12" >
-			<div class="cajamodulos">
+			<div class="cajamodulos" id="pulpises">
 				<input  type="radio" name="control" id="boton1"  onclick="delaylink(1)"/>
-				<label for="boton1" class="boton boton1" name="memoria">Snake</label>
+				<label for="boton1" class="boton boton1" name="deduccion">Deduccion</label>
+        
 				<input  type="radio" name="control" id="boton2" onclick="delaylink(2)"/>
-				<label for="boton2" class="boton boton2" name="memoria2">Memoria</label>
-
-				<div id="pulpi"></div>
+				<label for="boton2" class="boton boton2" name="memoria">Memoria</label>
+        
+        <input  type="radio" name="control" id="boton3" onclick="delaylink(3)"/>
+				<label for="boton3" class="boton boton3" name="ahorcado">Ahorcado</label>
+        
+        <input  type="radio" name="control" id="boton4" onclick="delaylink(4)"/>
+				<label for="boton4" class="boton boton4" name="imgMemoria">Memoria Imagenes</label>
+        
+        <input  type="radio" name="control" id="boton5" onclick="delaylink(5)"/>
+				<label for="boton5" class="boton boton5" name="tanque">Tanque</label>
+        
+        <input  type="radio" name="control" id="boton6" onclick="delaylink(6)"/>
+				<label for="boton6" class="boton boton6" name="naves">Naves</label>
+        
+        <input  type="radio" name="control" id="boton7" onclick="delaylink(7)"/>
+				<label for="boton7" class="boton boton7" name="simondice">Simon Dice</label>
+        
+        <input  type="radio" name="control" id="boton8" onclick="delaylink(8)"/>
+				<label for="boton8" class="boton boton8" name="gato">Gato</label>
+        
+				<!--<div id="pulpi"></div>
+        <div id="pulpi3"></div>-->
 			</div>
 		</div>
-<br><br><br>
-<center>Fondo por: &copy; Karla Azucena Guzman Favela.</h6></center>
+<br><br>
+<center>Fondo por: &copy; Karla Azucena Guzman Favela.</center>
 
 <!--ANIMACION BURBUJAS-->
 <div id="container">
@@ -37,10 +57,38 @@
   <script type="text/javascript">
 	function delaylink(boton){
     if(boton == 1){
-      setTimeout(function(){window.location.href = '/juegos/agilidad/snake';}, 1000 * 4)
+      $("#pulpises").append("<div id=\"pulpi\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/razonamiento/deduccion/';}, 1000 * 3)
     }
     if(boton == 2){
-      setTimeout(function(){window.location.href = '/juegos/agilidad/memoria/';}, 1000 * 4)
+      $("#pulpises").append("<div id=\"pulpi\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/agilidad/memoria/';}, 1000 * 3)
+    }
+    if(boton == 3){
+      /*var para = document.createElement("div");
+      document.getElementById("pulpises").appendChild(para);*/
+      $("#pulpises").append("<div id=\"pulpi3\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/razonamiento/ahorcado/';}, 1000 * 3)
+    }
+    if(boton == 4){
+      $("#pulpises").append("<div id=\"pulpi3\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/logica/memoria_img/';}, 1000 * 3)
+    }
+    if(boton == 5){
+      $("#pulpises").append("<div id=\"pulpi3\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/agilidad/tanque/';}, 1000 * 3)
+    }
+    if(boton == 6){
+      $("#pulpises").append("<div id=\"pulpi3\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/agilidad/nave/';}, 1000 * 3)
+    }
+    if(boton == 7){
+      $("#pulpises").append("<div id=\"pulpi3\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/agilidad/simondice/';}, 1000 * 3)
+    }
+    if(boton == 8){
+      $("#pulpises").append("<div id=\"pulpi3\"></div>");
+      setTimeout(function(){window.location.href = '/juegos/logica/gato/';}, 1000 * 3)
     }
   }
 	</script>

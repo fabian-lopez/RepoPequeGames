@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%block estilos%}
+<style type="text/css">
+  #miCanvas{
+    border:dotted 2px gray;
+    background-color: rgba(173, 69, 182, 0.2);
+  }
+</style>
+{%endblock%}
+{%block load%}{%endblock%}
+{%block body%}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-11 col-sm-11 col-xs-12 col-md-offset-1 col-sm-offset-1">
+			<br>
+        <canvas id="miCanvas" width="840px" height="500px">
+          Tu navegador no soporta CANVAS
+        </canvas>
+        <audio id="boing">
+          <source src="{{STATIC_URL}}auds/naves/boing.mp3">
+          <source src="{{STATIC_URL}}auds/naves/boing.ogg">
+       </audio>
+       <audio id="disparo">
+          <source src="{{STATIC_URL}}auds/naves/disparo.mp3">
+          <source src="{{STATIC_URL}}auds/naves/disparo.ogg">
+       </audio>
+       <audio id="intro">
+          <source src="{{STATIC_URL}}auds/naves/intro.mp3">
+          <source src="{{STATIC_URL}}auds/naves/intro.ogg">
+       </audio>
+       <audio id="fin">
+          <source src="{{STATIC_URL}}auds/naves/gameOver.mp3">
+          <source src="{{STATIC_URL}}auds/naves/gameOver.ogg">
+        </audio>
+				<br>
+			</div>
+		</div>
+	</div>
+<br>
+{%endblock%}
+{%block javablock%}
+	<script type="text/javascript" src="{{STATIC_URL}}js/nave.js"></script>
+{%endblock%}

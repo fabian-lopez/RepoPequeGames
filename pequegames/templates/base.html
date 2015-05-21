@@ -84,10 +84,11 @@
 				<ul class="nav nav-pills nav-justified">
 					<li><a href="/"><strong>Home</strong></a></li>
 				  <li><a href="/juegos/home"><strong>Juegos</strong></a></li>
-					<li><a href="/peques/consulta"><strong>Peques Registrados</strong></a></li>
+          <li><a href="/records/consulta/"><strong>Records</strong></a></li>
 					{% if user.is_authenticated %}	
+          <li><a href="/peque/consulta"><strong>Peques Registrados</strong></a></li>
           <li><a href="/peque/registro/"><strong>Registrar Peque</strong></a></li>
-						<li><a href="{%url 'logout'%}"><strong><en>{{user.username}}:</en></strong> LogOut</a></li>	
+						<li><a href="{%url 'logout'%}"><strong><en>{{user.username|capfirst}}:</en></strong> LogOut</a></li>	
 					{% else %}
             <li><a href="/tutores/registro/"><strong>Registrarse</strong></a></li>
 						<li><a href="{%url 'login'%}"><strong>LogIn</strong></a></li>
@@ -141,5 +142,21 @@
 	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.min.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/docs.min.js"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function(){
+      $.ajax({
+        type:"get",
+        contentType:"application/json;charset=utf-8",
+        dateType:"json",
+        url:"/tutores/WEBjson/",
+        success:function(response){
+          var i = (response.length-1)-2;
+          for (i;i <=(response.length-1);i++){
+            $('#newtutor').append("<img src=\"{{MEDIA_URL}}"+response[i].fields.foto+"\" width = \"120\">&nbsp&nbsp&nbsp&nbsp");
+          }
+        }
+      });
+    });
+	</script>
 	{%block javablock%}{%endblock%}
 </html>

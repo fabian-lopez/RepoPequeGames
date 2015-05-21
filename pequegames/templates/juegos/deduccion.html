@@ -1,0 +1,55 @@
+{%extends 'base.html'%}
+{%block estilos%}
+<style type="text/css">
+  #miCanvas{
+    border:dotted 2px gray;
+    background-color: rgba(173, 69, 182, 0.2);
+  }
+</style>
+{%endblock%}
+{%block load%}{%endblock%}
+{%block body%}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-11 col-sm-11 col-xs-12 col-md-offset-1 col-sm-offset-1">
+			<br>
+        <canvas id="miCanvas" width="960px" height="500px">
+          Tu navegador no soporta CANVAS
+        </canvas>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+		  Informaci&oacute;n
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Juego de Deduccion!</h4>
+		      </div>
+		      <div class="modal-body">
+		       
+		     <!--   <br/>  <hr class="degradado">      <br/>-->
+		        El  objetivo de este juego es deducir/adivinar cual es la secuencia de colores. Da un click sobre cada circulo y veras como ira cambiando de color; cambia de color cada circulo para formar una secuencia y despues, da click sobre la palabra "Probar". El sistema te arrojara unas pistas, tales como: 
+            
+Que colores estan correctos y cuales estan en la posicion que deben de estar.  Gracias a estos datos a lo largo del juego podras deducir el patron de colores final. ATREVETE A INTENTARLO. Quieres probar?
+
+		        <center><a href="/"></a></center>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+				<br>
+			</div>
+		</div>
+	</div>
+<br>
+{%endblock%}
+{%block javablock%}
+	<script type="text/javascript" src="{{STATIC_URL}}js/deduccion.js"></script>
+{%endblock%}

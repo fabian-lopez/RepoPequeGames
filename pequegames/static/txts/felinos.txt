@@ -1,0 +1,7 @@
+tigre.png,tigre.png,
+ligre.png,ligre.png,
+leopardo.png,leopardo.png,
+leon.png,leon.png,
+gatoegipcio.png,gatoegipcio.png,
+gato.png,gato.png,
+cheetah.png,cheetah.png
